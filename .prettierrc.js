@@ -5,5 +5,6 @@ module.exports = {
   semi: false,
   arrowParens: 'always',
   requirePragma: false,
-  trailingComma: 'none'
+  trailingComma: 'none',
+  bracketSpacing: true
 };
