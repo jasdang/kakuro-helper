@@ -20,13 +20,15 @@ const initialNumbersState: NumbersState = {
 
 type Action = {
   type: string
-  payload: number
+  payload?: number
 }
 
 const numbersReducer = (state: NumbersState, action: Action) => {
   switch (action.type) {
     case 'toggle':
-      return { ...state, [action.payload]: !state[action.payload] }
+      return { ...state, [action.payload!]: !state[action.payload!] }
+    case 'reset':
+      return initialNumbersState
     default:
       return state
   }
@@ -60,11 +62,19 @@ const NumbersToSum = (): JSX.Element => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const numberList = numbers.map((num) => <Number number={num} key={num} />)
 
+  const handleReset = () => {
+    numbersDispatch({ type: 'reset' })
+  }
   return (
     <span>
       <h3>NUMBERS TO SUM</h3>
       <NumbersContext.Provider value={{ numbersState, numbersDispatch }}>
-        <div>{numberList}</div>
+        <div>
+          {numberList}
+          <button type="button" onClick={handleReset}>
+            Reset
+          </button>
+        </div>
       </NumbersContext.Provider>
       <p>{shouldRenderSum && sum}</p>
     </span>
