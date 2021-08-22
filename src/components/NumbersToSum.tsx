@@ -3,18 +3,10 @@ import React, { useState, useReducer } from 'react'
 import Number from './Number'
 
 type SelectedNumberState = {
-  1: boolean
-  2: boolean
-  3: boolean
-  4: boolean
-  5: boolean
-  6: boolean
-  7: boolean
-  8: boolean
-  9: boolean
+  [index: number]: boolean
 }
 
-const initialSelectedNumberState = {
+const initialSelectedNumberState: SelectedNumberState = {
   1: false,
   2: false,
   3: false,
@@ -34,7 +26,7 @@ type Action = {
 const selectedNumbersReducer = (state: SelectedNumberState, action: Action) => {
   switch (action.type) {
     case 'toggle':
-      return { ...state, [action.payload]: true }
+      return { ...state, [action.payload]: !state[action.payload] }
     default:
       return state
   }
@@ -42,8 +34,6 @@ const selectedNumbersReducer = (state: SelectedNumberState, action: Action) => {
 
 export const SelectedNumberContext = React.createContext({})
 const NumbersToSum = (): JSX.Element => {
-  // eslint-disable-next-line
-  const [selectedNumbers, setSelectedNumbers] = useState([])
   // eslint-disable-next-line
   const [sum, setSum] = useState(0)
   // eslint-disable-next-line
@@ -61,7 +51,7 @@ const NumbersToSum = (): JSX.Element => {
     <span>
       <h3>NUMBERS TO SUM</h3>
       <SelectedNumberContext.Provider
-        value={{ selectedNumbers, selectedNumbersDispatch }}
+        value={{ selectedNumbersState, selectedNumbersDispatch }}
       >
         {numberList}
       </SelectedNumberContext.Provider>

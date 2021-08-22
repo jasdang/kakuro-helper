@@ -12,7 +12,7 @@ const Number = ({ number }: NumberProp): JSX.Element => {
       type: 'toggle',
       payload: number
     })
-    console.log('Click Number')
+    console.log(selectedNumbersContext.selectedNumbersState)
   }
   return (
     <button type="button" onClick={handleOnClick}>
