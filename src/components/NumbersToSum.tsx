@@ -58,7 +58,7 @@ const NumbersToSum = (): JSX.Element => {
   }, [numbersState])
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  const numberList = numbers.map((num) => <Number number={num} />)
+  const numberList = numbers.map((num) => <Number number={num} key={num} />)
 
   return (
     <span>
