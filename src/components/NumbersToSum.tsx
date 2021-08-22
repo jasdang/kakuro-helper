@@ -57,6 +57,7 @@ const NumbersToSum = (): JSX.Element => {
     const selectedNumbers = getSelectedNumbers(numbersState)
     setShouldRenderSum(selectedNumbers.length !== 0)
     setSum(selectedNumbers.reduce((acc, val) => acc + val, 0))
+    // TODO: Clean up
   }, [numbersState])
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
