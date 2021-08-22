@@ -1,18 +1,17 @@
 import React, { useContext } from 'react'
 // eslint-disable-next-line
-import { SelectedNumberContext } from './NumbersToSum'
+import { NumbersContext } from './NumbersToSum'
 
 type NumberProp = {
   number: number
 }
 const Number = ({ number }: NumberProp): JSX.Element => {
-  const selectedNumbersContext: any = useContext(SelectedNumberContext)
+  const numbersContext: any = useContext(NumbersContext)
   const handleOnClick = () => {
-    selectedNumbersContext.selectedNumbersDispatch({
+    numbersContext.numbersDispatch({
       type: 'toggle',
       payload: number
     })
-    console.log(selectedNumbersContext.selectedNumbersState)
   }
   return (
     <button type="button" onClick={handleOnClick}>

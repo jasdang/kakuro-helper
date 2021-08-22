@@ -2,11 +2,11 @@ import React, { useState, useReducer, useEffect } from 'react'
 // eslint-disable-next-line
 import Number from './Number'
 
-type SelectedNumberState = {
+type NumbersState = {
   [index: number]: boolean
 }
 
-const initialSelectedNumberState: SelectedNumberState = {
+const initialNumbersState: NumbersState = {
   1: false,
   2: false,
   3: false,
@@ -23,7 +23,7 @@ type Action = {
   payload: number
 }
 
-const selectedNumbersReducer = (state: SelectedNumberState, action: Action) => {
+const numbersReducer = (state: NumbersState, action: Action) => {
   switch (action.type) {
     case 'toggle':
       return { ...state, [action.payload]: !state[action.payload] }
@@ -32,30 +32,30 @@ const selectedNumbersReducer = (state: SelectedNumberState, action: Action) => {
   }
 }
 
-export const SelectedNumberContext = React.createContext({})
+export const NumbersContext = React.createContext({})
 const NumbersToSum = (): JSX.Element => {
   const [sum, setSum] = useState(0)
   const [shouldRenderSum, setShouldRenderSum] = useState(false)
-  const [selectedNumbersState, selectedNumbersDispatch] = useReducer(
-    selectedNumbersReducer,
-    initialSelectedNumberState
+  const [numbersState, numbersDispatch] = useReducer(
+    numbersReducer,
+    initialNumbersState
   )
 
   useEffect(() => {
     // Function definition
-    const getSelectedNumbers = (numberObject: SelectedNumberState) => {
-      const result: number[] = Object.entries(numberObject)
+    const getSelectedNumbers = (numberObject: NumbersState) => {
+      const selectedNumbers: number[] = Object.entries(numberObject)
         .filter((keyValuePair) => keyValuePair[1])
         .map((keyValuePair) => {
           return parseInt(keyValuePair[0], 10)
         })
-      return result
+      return selectedNumbers
     }
     // Execution
-    const selectedNumbers = getSelectedNumbers(selectedNumbersState)
+    const selectedNumbers = getSelectedNumbers(numbersState)
     setShouldRenderSum(selectedNumbers.length !== 0)
     setSum(selectedNumbers.reduce((acc, val) => acc + val, 0))
-  }, [selectedNumbersState])
+  }, [numbersState])
 
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const numberList = numbers.map((num) => <Number number={num} />)
@@ -63,11 +63,9 @@ const NumbersToSum = (): JSX.Element => {
   return (
     <span>
       <h3>NUMBERS TO SUM</h3>
-      <SelectedNumberContext.Provider
-        value={{ selectedNumbersState, selectedNumbersDispatch }}
-      >
+      <NumbersContext.Provider value={{ numbersState, numbersDispatch }}>
         <div>{numberList}</div>
-      </SelectedNumberContext.Provider>
+      </NumbersContext.Provider>
       <p>{shouldRenderSum && sum}</p>
     </span>
   )
