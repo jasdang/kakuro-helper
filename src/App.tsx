@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import NumbersToSum from './components/NumbersToSum'
+import SumToNumbers from './components/SumToNumbers'
 
 const App: React.FC = () => {
   return (
@@ -8,12 +9,7 @@ const App: React.FC = () => {
       <h1>KAKURO HELPER</h1>
       <NumbersToSum />
       <br />
-      <h3>BREAK SUM TO NUMBERS</h3>
-      <form action="">
-        <input type="number" placeholder="Sum" />
-        <input type="number" placeholder="Nos of digits" />
-        <button type="submit">Submit</button>
-      </form>
+      <SumToNumbers />
     </div>
   )
 }
