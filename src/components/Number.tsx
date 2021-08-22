@@ -7,24 +7,23 @@ type NumberProp = {
 }
 const Number = ({ number }: NumberProp): JSX.Element => {
   const numbersContext: any = useContext(NumbersContext)
-  const handleOnClick = (e: any) => {
-    const prevState = numbersContext.numbersState[number]
-    const element = document.getElementById(e.target.id)
-
+  const handleOnClick = () => {
     numbersContext.numbersDispatch({
       type: 'toggle',
       payload: number
     })
-
-    // Set simple button style
-    if (prevState) {
-      element?.removeAttribute('style')
-    } else {
-      element?.setAttribute('style', 'background-color:grey')
-    }
   }
   return (
-    <button type="button" onClick={handleOnClick} id={`num-${number}`}>
+    <button
+      type="button"
+      onClick={handleOnClick}
+      id={`num-${number}`}
+      style={
+        numbersContext.numbersState[number]
+          ? { backgroundColor: 'grey' }
+          : undefined
+      }
+    >
       {number}
     </button>
   )
