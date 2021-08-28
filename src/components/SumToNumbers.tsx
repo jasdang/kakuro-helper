@@ -78,6 +78,17 @@ const SumToNumbers = (): JSX.Element => {
     setNumOfDigits(0)
     setShouldShowResult(false)
   }
+
+  const compileResults = (res: Combination[]) => {
+    return (
+      <div>
+        {res.map((comb) => (
+          <p>{comb.join(', ')}</p>
+        ))}
+      </div>
+    )
+  }
+  // TODO: Add validation for sum and num of digits in the form
   return (
     <span>
       <h3>BREAK SUM TO NUMBERS</h3>
@@ -99,7 +110,7 @@ const SumToNumbers = (): JSX.Element => {
           Reset
         </button>
       </form>
-      <div>{shouldShowResult && results}</div>
+      <div>{shouldShowResult && compileResults(results)}</div>
     </span>
   )
 }
