@@ -67,10 +67,14 @@ const SumToNumbers = (): JSX.Element => {
   const handleFormSubmit = (e: any) => {
     e.preventDefault()
     const combinationsWithMatchingSum = combinationStore[sum]
-    const combinationsWithMatchingLength = combinationsWithMatchingSum.filter(
-      (comb) => comb.length === numOfDigits
-    )
-    setResults(combinationsWithMatchingLength)
+    if (numOfDigits === 0) {
+      setResults(combinationsWithMatchingSum)
+    } else {
+      const combinationsWithMatchingLength = combinationsWithMatchingSum.filter(
+        (comb) => comb.length === numOfDigits
+      )
+      setResults(combinationsWithMatchingLength)
+    }
     setShouldShowResult(true)
   }
   const handleReset = () => {
