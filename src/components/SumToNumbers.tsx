@@ -101,12 +101,16 @@ const SumToNumbers = (): JSX.Element => {
           type="number"
           placeholder="Sum"
           value={sum}
+          min={1}
+          max={45}
           onChange={(e: any) => setSum(parseInt(e.target.value, 10))}
         />
         <input
           type="number"
           placeholder="Nos of digits"
           value={numOfDigits}
+          min={0}
+          max={9}
           onChange={(e: any) => setNumOfDigits(parseInt(e.target.value, 10))}
         />
         <button type="submit">Submit</button>
