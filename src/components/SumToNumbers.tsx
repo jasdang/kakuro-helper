@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 type Combination = number[]
 type CombinationStore = {
@@ -53,31 +53,25 @@ const getCombinationHash = (): CombinationStore => {
       combinationHash[sum] = [comb]
     }
   }
-  console.log(combinationHash)
   return combinationHash
 }
 
 const SumToNumbers = (): JSX.Element => {
   const [sum, setSum] = useState(0)
   const [numOfDigits, setNumOfDigits] = useState(0)
-  // eslint-disable-next-line
   const [shouldShowResult, setShouldShowResult] = useState(false)
-  // eslint-disable-next-line
-  const [results, setResults] = useState([])
-  // eslint-disable-next-line
-  const [combinationStore, setCombinationStore] = useState({})
-
-  useEffect(() => {
-    // TODO: set CombinationStore
-    const combinationHash = getCombinationHash()
-    console.log(combinationHash)
-    setCombinationStore(combinationHash)
-    return setCombinationStore({})
-  }, [])
+  const [results, setResults] = useState([] as Combination[])
+  const combinationHash = getCombinationHash()
+  const [combinationStore] = useState(combinationHash)
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault()
-    // TODO: Get combination from CombinationStore based on sum and number of digits
+    const combinationsWithMatchingSum = combinationStore[sum]
+    const combinationsWithMatchingLength = combinationsWithMatchingSum.filter(
+      (comb) => comb.length === numOfDigits
+    )
+    setResults(combinationsWithMatchingLength)
+    setShouldShowResult(true)
   }
   return (
     <span>
