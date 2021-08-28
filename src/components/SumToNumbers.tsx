@@ -73,6 +73,11 @@ const SumToNumbers = (): JSX.Element => {
     setResults(combinationsWithMatchingLength)
     setShouldShowResult(true)
   }
+  const handleReset = () => {
+    setSum(0)
+    setNumOfDigits(0)
+    setShouldShowResult(false)
+  }
   return (
     <span>
       <h3>BREAK SUM TO NUMBERS</h3>
@@ -90,6 +95,9 @@ const SumToNumbers = (): JSX.Element => {
           onChange={(e: any) => setNumOfDigits(parseInt(e.target.value, 10))}
         />
         <button type="submit">Submit</button>
+        <button type="button" onClick={handleReset}>
+          Reset
+        </button>
       </form>
       <div>{shouldShowResult && results}</div>
     </span>
