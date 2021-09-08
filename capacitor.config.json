@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.kakurohelper",
+  "appName": "kakurohelper",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

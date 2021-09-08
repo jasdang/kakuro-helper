@@ -1,0 +1,7 @@
+{
+  "name": "kakurohelper",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
