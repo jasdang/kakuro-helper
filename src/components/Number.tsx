@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 // eslint-disable-next-line
 import { NumbersContext } from './NumbersToSum'
+import './Number.css'
 
 type NumberProp = {
   number: number
@@ -23,6 +24,7 @@ const Number = ({ number }: NumberProp): JSX.Element => {
           ? { backgroundColor: 'grey' }
           : undefined
       }
+      className="Number"
     >
       {number}
     </button>

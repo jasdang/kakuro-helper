@@ -73,9 +73,9 @@ const NumbersToSum = (): JSX.Element => {
       <p>This is a calculator to compute the sum of unique numbers.</p>
       <p>Click on a number to add/remove it from the sum.</p>
       <NumbersContext.Provider value={{ numbersState, numbersDispatch }}>
-        <div className="DivCenter">
+        <div className="DivCenter Grid">
           {numberList}
-          <button type="button" onClick={handleReset}>
+          <button type="button" onClick={handleReset} className="Reset">
             Reset
           </button>
         </div>
