@@ -2,16 +2,16 @@
   width: fit-content;
   margin: auto;
 }
-.Grid {
+.GridNumber {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.Reset {
+.ResetNumber {
   height: 50px;
   grid-column-start: 1;
   grid-column-end: 4;
 }
-.Result {
+.ResultNumber {
   margin-top: 20px;
   text-align: center;
   text-decoration: solid;

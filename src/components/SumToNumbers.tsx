@@ -107,7 +107,7 @@ const SumToNumbers = (): JSX.Element => {
         combinations.
       </p>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="sum-input" className="Grid">
+        <label htmlFor="sum-input" className="GridSum">
           Sum
           <input
             id="sum-input"
@@ -120,7 +120,7 @@ const SumToNumbers = (): JSX.Element => {
             onChange={(e: any) => setSum(parseInt(e.target.value, 10))}
           />
         </label>
-        <label htmlFor="length-input" className="Grid">
+        <label htmlFor="length-input" className="GridSum">
           Length of Combination
           <input
             id="length-input"
@@ -133,7 +133,7 @@ const SumToNumbers = (): JSX.Element => {
             onChange={(e: any) => setNumOfDigits(parseInt(e.target.value, 10))}
           />
         </label>
-        <span className="Grid">
+        <span className="GridSum">
           <button type="submit" className="SubmitSum">
             Submit
           </button>
@@ -142,7 +142,7 @@ const SumToNumbers = (): JSX.Element => {
           </button>
         </span>
       </form>
-      <div className="Result">
+      <div className="ResultSum">
         <h3>{shouldShowResult && 'Possible Combinations'}</h3>
         <h4>{shouldShowResult && compileResults(results)}</h4>
       </div>

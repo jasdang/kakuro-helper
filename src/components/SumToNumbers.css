@@ -1,4 +1,4 @@
-.Grid {
+.GridSum {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: auto;
@@ -26,4 +26,9 @@
 }
 .ResetSum:hover {
   color: blue;
+}
+.ResultSum {
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: solid;
 }
