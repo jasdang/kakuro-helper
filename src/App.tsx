@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import NumbersToSum from './components/NumbersToSum'
 import SumToNumbers from './components/SumToNumbers'
+import GoogleAds from './components/GoogleAds'
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <SumToNumbers />
         </Route>
       </Switch>
+      <GoogleAds slot="3037224393" />
     </Router>
   )
 }
