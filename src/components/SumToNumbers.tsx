@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './SumToNumbers.css'
 
 type Combination = number[]
 type CombinationStore = {
@@ -106,26 +107,40 @@ const SumToNumbers = (): JSX.Element => {
         combinations.
       </p>
       <form onSubmit={handleFormSubmit}>
-        <input
-          type="number"
-          placeholder="Sum"
-          value={sum}
-          min={1}
-          max={45}
-          onChange={(e: any) => setSum(parseInt(e.target.value, 10))}
-        />
-        <input
-          type="number"
-          placeholder="Nos of digits"
-          value={numOfDigits}
-          min={0}
-          max={9}
-          onChange={(e: any) => setNumOfDigits(parseInt(e.target.value, 10))}
-        />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleReset}>
-          Reset
-        </button>
+        <label htmlFor="sum-input" className="Grid">
+          Sum
+          <input
+            id="sum-input"
+            className="Input"
+            type="number"
+            placeholder="Sum"
+            value={sum}
+            min={1}
+            max={45}
+            onChange={(e: any) => setSum(parseInt(e.target.value, 10))}
+          />
+        </label>
+        <label htmlFor="length-input" className="Grid">
+          Length of Combination
+          <input
+            id="length-input"
+            className="Input"
+            type="number"
+            placeholder="Nos of digits"
+            value={numOfDigits}
+            min={0}
+            max={9}
+            onChange={(e: any) => setNumOfDigits(parseInt(e.target.value, 10))}
+          />
+        </label>
+        <span className="Grid">
+          <button type="submit" className="SubmitSum">
+            Submit
+          </button>
+          <button type="button" onClick={handleReset} className="ResetSum">
+            Reset
+          </button>
+        </span>
       </form>
       <div>{shouldShowResult && compileResults(results)}</div>
     </span>

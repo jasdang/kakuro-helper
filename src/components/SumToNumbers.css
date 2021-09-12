@@ -1,0 +1,29 @@
+.Grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 12px;
+  text-align: right;
+}
+.Input {
+  margin-left: 8px;
+}
+
+.SubmitSum {
+  grid-column-start: 2;
+}
+
+.SubmitSum,
+.ResetSum {
+  margin-left: 8px;
+}
+
+.ResetSum {
+  text-decoration: underline;
+  background: none;
+  border: none;
+  text-align: left;
+}
+.ResetSum:hover {
+  color: blue;
+}
