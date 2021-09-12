@@ -11,3 +11,8 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
+.Result {
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: solid;
+}

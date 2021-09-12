@@ -80,7 +80,10 @@ const NumbersToSum = (): JSX.Element => {
           </button>
         </div>
       </NumbersContext.Provider>
-      <p>{shouldRenderSum && sum}</p>
+      <div className="Result">
+        <h3>{shouldRenderSum && 'Result'}</h3>
+        <h4>{shouldRenderSum && sum}</h4>
+      </div>
     </span>
   )
 }
