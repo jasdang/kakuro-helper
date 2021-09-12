@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect } from 'react'
 // eslint-disable-next-line
 import Number from './Number'
+import './NumbersToSum.css'
 
 type NumbersState = {
   [index: number]: boolean
@@ -72,7 +73,7 @@ const NumbersToSum = (): JSX.Element => {
       <p>This is a calculator to compute the sum of unique numbers.</p>
       <p>Click on a number to add/remove it from the sum.</p>
       <NumbersContext.Provider value={{ numbersState, numbersDispatch }}>
-        <div>
+        <div className="DivCenter">
           {numberList}
           <button type="button" onClick={handleReset}>
             Reset

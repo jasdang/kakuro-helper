@@ -1,4 +1,8 @@
-.App {
+.App,
+h3,
+form {
+  width: 400px;
+  margin: auto;
   text-align: center;
 }
 
@@ -35,4 +39,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Nav {
+  display: flex;
+  justify-content: center;
+}
+
+.Nav a {
+  margin: 8px;
+}
+
+.helper-container {
+  text-align: justify;
 }
