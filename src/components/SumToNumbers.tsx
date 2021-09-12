@@ -142,7 +142,10 @@ const SumToNumbers = (): JSX.Element => {
           </button>
         </span>
       </form>
-      <div>{shouldShowResult && compileResults(results)}</div>
+      <div className="Result">
+        <h3>{shouldShowResult && 'Possible Combinations'}</h3>
+        <h4>{shouldShowResult && compileResults(results)}</h4>
+      </div>
     </span>
   )
 }
