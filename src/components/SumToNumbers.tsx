@@ -96,6 +96,15 @@ const SumToNumbers = (): JSX.Element => {
   return (
     <span>
       <h3>BREAK SUM TO NUMBERS</h3>
+      <p>
+        This is a helper to break a given sum into combination of unique number.
+      </p>
+      <p>In the first cell, provide a sum from 0 to 45.</p>
+      <p>
+        In the second cell, provide an expected length of the combination from 0
+        to 9. If no expected length given, the helper will display all possible
+        combinations.
+      </p>
       <form onSubmit={handleFormSubmit}>
         <input
           type="number"

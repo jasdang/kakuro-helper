@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
+import Home from './components/Home'
 import NumbersToSum from './components/NumbersToSum'
 import SumToNumbers from './components/SumToNumbers'
 import GoogleAds from './components/GoogleAds'
@@ -16,6 +17,9 @@ const App: React.FC = () => {
         <Link to="/sum-to-numbers">Sum To Numbers</Link>
       </nav>
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/numbers-to-sum">
           <NumbersToSum />
         </Route>
